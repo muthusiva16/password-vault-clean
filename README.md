@@ -1,40 +1,30 @@
-# Password Vault (MVP)
+# Password Vault MVP 
+A simple password generator and vault app built with Next.js and MongoDB.
 
-Tech: Next.js (TypeScript) + MongoDB. Client-side encryption (Web Crypto API).
+## Live Demo
+https://password-vault-clean.vercel.app/
+
+## Tech Stack
+- Frontend: Next.js + TypeScript
+- Backend: Next.js API Routes
+- Database: MongoDB
+- Encryption: Web Crypto API (AES-GCM, client-side)
+
+---
 
 ## Features
-- Generate strong passwords (custom length, characters, exclude look-alike chars).
-- Sign up / log in (email + password).
-- Vault CRUD (title, username, password, URL, notes).
-- Client-side AES-GCM encryption of entries (server stores only encrypted blobs).
-- Copy to clipboard with auto-clear.
-- Basic search.
+- Generate strong passwords
+- User authentication (email + password)
+- Save vault items: title, username, password, URL, notes
+- Client-side encryption (no plaintext stored on server)
+- Copy password to clipboard (auto-clears after 10-20 seconds)
+- Search and filter items
 
-## Run locally
-1. Clone / unzip and cd into the project:
-   ```bash
-   cd password-vault
-   ```
+---
 
-2. Install:
-   ```bash
-   npm install
-   ```
+## Setup Instructions
 
-3. Copy `.env.example` to `.env.local` and fill:
-   ```
-   MONGODB_URI=...
-   JWT_SECRET=...
-   NODE_ENV=development
-   ```
-
-4. Start dev server:
-   ```bash
-   npm run dev
-   ```
-
-5. Open http://localhost:3000
-
-## Crypto note
-Client derives a vault key from the user password using PBKDF2 (200k iterations) and uses AES-GCM to encrypt vault entries on the client. This keeps plaintext out of the server; the server stores salts and encrypted blobs only.
-
+1. **Clone the repo**
+```bash
+git clone https://github.com/muthusiva16/password-vault-clean.git
+cd password-vault-clean
