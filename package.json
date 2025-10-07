@@ -17,9 +17,10 @@
     "react-dom": "18.3.1"
   },
   "devDependencies": {
+    "@types/bcrypt": "6.0.0",
+    "@types/jsonwebtoken": "^9.0.10",
     "@types/node": "20.5.1",
     "@types/react": "18.2.21",
-    "@types/bcrypt": "6.0.0",
     "typescript": "5.4.5"
   }
 }
