@@ -1,10 +1,16 @@
-import jwt from "jsonwebtoken";
-const JWT_SECRET = process.env.JWT_SECRET || "dev-secret";
+// src/lib/jwt.ts
+import jwt, { SignOptions, JwtPayload } from "jsonwebtoken";
 
-export function sign(payload: object, expiresIn = "7d") {
-  return jwt.sign(payload, JWT_SECRET, { expiresIn });
+const JWT_SECRET: string = process.env.JWT_SECRET || "dev-secret";
+
+// Payload type can be object or string
+export function sign(payload: string | object, expiresIn: string = "7d"): string {
+  const options: SignOptions = { expiresIn };
+  return jwt.sign(payload, JWT_SECRET, options);
 }
 
-export function verify(token: string) {
+// Returns decoded payload or throws error if invalid
+export function verify(token: string): string | JwtPayload {
   return jwt.verify(token, JWT_SECRET);
 }
+
